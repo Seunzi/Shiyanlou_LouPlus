@@ -31,23 +31,23 @@ class File(db.Model):
         return self.title
 
     def add_tag(self,tag_name):
-        if db1.files.find_one({'file_id':self.id}).count()!=0:
-            db1.files.update({'file_id':self.id},{'$addToSet':{'tag':tag_name}})
+        if db1.files.find_one({'file_id':self.id}):
+            db1.files.update({'file_id':self.id},{'$addToSet':{'tag':[tag_name]}})
         else:
             tag = {'file_id':self.id,'tag':tag_name}
             db1.files.insert_one(tag)
         pass
 
     def remove_tag(self,tag_name):
-        if db.files.find_one({'file_id':self.id,'tag':tag_name}).count()!=0:
+        if db1.files.find_one({'file_id':self.id,'tag':tag_name}).count()!=0:
             db1.files.deleteOne({'file_id':self.id,'tag':tag_name})
         pass
 
     @property
     def tags(self):
         tagstrings = ''
-        if db.files.find_one({'file_id':self.id,'tag':{'$exists':True}}).count()!=0:
-            for file in db.files.find_one({'file_id':self.id}):
+        if db1.files.find_one({'file_id':self.id,'tag':{'$exists':True}}):
+            for file in db1.files.find_one({'file_id':self.id}):
                 tagstrings = ','.join(file['tag'])
         return tagstrings
 
