@@ -1,0 +1,4 @@
+{
+  "test_sample.py::test_inc": true,
+  "tests/test_models.py::TestServer::()": true
+}

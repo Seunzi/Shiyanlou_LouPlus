@@ -1,4 +1,5 @@
 from rmon.models import Server
+from rmon.common.rest import RestException
 
 class  TestServer:
     """Testing Server Function
@@ -18,3 +19,25 @@ class  TestServer:
         assert Server.query.count() == 1
         server.delete()
         assert Server.query.count() == 0
+
+    def test_ping_success(self,db,server):
+        """Testing the success of Server.ping
+        Need to make sure that Redis is listening 127.0.0.1:6379
+        """
+
+        assert server.ping() is True
+
+    def test_ping_failed(self,db):
+        """Testing the failure of the Server.ping
+        When failed on Server.ping will raise the RestException error
+        """
+
+        server = Server(name='test',host='127.0.0.1',port=6399)
+
+        try:
+            server.ping()
+        except RestException as e:
+            assert e.code == 400
+            assert e.message == 'redis server %s can not connected' % server.host
+
+
