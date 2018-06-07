@@ -1,7 +1,7 @@
 """rmon.views.index
 """
 
-from flask import render_tamplate
+from flask import render_template
 from flask.views import MethodView
 
 class IndexView(MethodView):
