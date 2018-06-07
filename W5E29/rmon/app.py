@@ -1,37 +1,18 @@
-"""rmon.app
+"""app.py
+Application Entry file
 """
 
-import os
-from flask import Flask
-
-from rmon.views import api
+import urllib
+from rmon.app import create_app
 from rmon.models import db
-from rmon.config import DevConfig,ProductConfig
 
-def create_app():
-    """Create and Initialize the Flask app
+app = create_app()
+
+@app.cli.command()
+def init_db():
+    """Initialize the database
     """
+    print("sqlite3 database file is %s" % app.config['SQLALCHEMY_DATABASE_URI'])
+    db.creat_all()
 
-    app = Flask('rmon')
-    env = os.environ.get('RMON_ENV')
-
-    #Check the env to load config
-    if env in ('pro','prod','product'):
-        app.config.from_object(ProductConfig)
-    else:
-        app.config.from_object(DevConfig)
-
-    #From environment variable load config
-    app.config.from_envvar('RMON_SETTINGS',silent=True)
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-    #registering the Blueprin
-    app.register_blueprint(api)
-    #initialize the database
-    db.init_app(app)
-    #Create Collections and tables WHEN the env is Dev
-    if app.debug:
-        with app.app_context():
-            db.create_all()
-    return app
 
