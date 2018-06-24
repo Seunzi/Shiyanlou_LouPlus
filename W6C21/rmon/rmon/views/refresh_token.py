@@ -2,7 +2,7 @@ from datetime import datetime
 from flask import request,g
 from rmon.models import User
 from rmon.common.errors import AuthenticationError
-from rmon.common.rest import Restview
+from rmon.common.rest import RestView
 from .decorators import TokenAuthenticate
 
 class RefreshView(Restview):
@@ -15,4 +15,3 @@ class RefreshView(Restview):
         Refreshing
         """
         return {'ok': True, 'token': g.user.generate_token()}
-
