@@ -5,7 +5,7 @@ from rmon.common.errors import AuthenticationError
 from rmon.common.rest import RestView
 from .decorators import TokenAuthenticate
 
-class RefreshView(Restview):
+class RefreshView(RestView):
     """Refresh Token from the old one.
     """
     method_decorators = (TokenAuthenticate(admin=False),)
