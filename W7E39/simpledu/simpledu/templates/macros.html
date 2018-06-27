@@ -1,0 +1,33 @@
+{% macro render_form(form,url) %}
+<form method="POST" action="{{ url }}">
+    <!-- Start csrf_token befor the rendering -->
+    {{ form.csrf_token }}
+    <!-- iter every form field -->
+    {% for field in form %}
+        <!-- not render the scrf_token -->
+        {% if field.type == 'CSRFTokenField' %}
+        {{ '' }}
+        <!-- special offer to the SubmitField -->
+        {% elif field.type == 'SubmitField' %}
+        {{ form.submit(class='btn btn-primary', type='submit') }}
+        <!-- special offer to BooleanField -->
+        {% elif field.type == 'BooleanField' %}
+        <div class="checkbox">
+            <label>{{ field() }} {{ field.label.text }}</label>
+        </div>
+        {% else %}
+        <!-- when errors not empty,it will add has-error class,change the input frame red -->
+        <div class="form-gruop {% if field.errors %}has-error{% endif %}">
+            {{ field.label }} {{ field(class='form-control') }}
+            <!-- when errors not empty,iterate every error -->
+            {% if field.errors %}
+                {% for error in field.errors %}
+                    <span class="help-block">{{ error }}</span>
+                {% endfor %}
+            {% endif %}
+        </div>
+        {% endif %}
+    {% endfor %}
+</form>
+{% endmacro %}
+
