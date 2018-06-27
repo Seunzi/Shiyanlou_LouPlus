@@ -1,5 +1,5 @@
 from flask import Blueprint,render_template, flash, redirect, url_for
-from simpledu.models import Course
+from simpledu.models import Course, User
 from simpledu.forms import LoginForm, RegisterForm
 from flask_login import login_user, logout_user, login_required
 

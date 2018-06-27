@@ -45,7 +45,7 @@ class User(Base, UserMixin):
         self._password = generate_password_hash(orig_password)
 
     def check_password(self,password):
-        return check_password_hash(self,_password,password)
+        return check_password_hash(self._password,password)
 
     @property
     def is_admin(self):
