@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% from "macros.html" import render_pagination %}
+
+{% block title %}Live{% endblock %}
+
+{% block body %}
+<div class="row">
+  {% for live in pagination.items %}
+  <div class="col-sm-6 col-md-4 live">
+      <h4>{{ live.name }}</h4>
+      <h5>{{ live.user.username }}</h5>
+  </div>
+  {% endfor %}
+</div>
+
+{{ render_pagination(pagination, 'front.index') }}
+{% endblock %}
