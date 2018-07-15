@@ -1,0 +1,9 @@
+flask
+flask-sqlalchemy
+mysqlclient
+flask-migrate
+flask-wtf
+flask-login
+flask-sockets
+gunicorn
+redis
