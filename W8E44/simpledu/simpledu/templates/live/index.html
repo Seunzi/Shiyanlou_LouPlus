@@ -45,7 +45,7 @@ Live
     var outbox = new WebSocket('ws://' + location.host + "/ws/send");
 
 inbox.onmessage = function(message) {
-    var data = JSON.parser(message.data);
+    var data = JSON.parse(message.data);
     $("#message-box").append('<p><b>' + data.username + '</b>' + ':' + data.text + '</p>');
 };
 
@@ -55,11 +55,11 @@ inbox.onclose = function(){
 };
 
 outbox.onclose = function(){
-    console.og('outbox closed');
+    console.log('outbox closed');
     this.outbox = new WebSocket('ws://' + location.host + "/ws/send");
 };
 
-$("#message-form buttom").on("click",function(event) {
+$("#message-form button").on("click",function(event) {
         // get user message
         text = $('#message-form input').val();
         // get user name
