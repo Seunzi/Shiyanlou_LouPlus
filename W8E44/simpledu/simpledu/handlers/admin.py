@@ -75,7 +75,7 @@ def edit_user(user_id):
     if form.validate_on_submit():
         form.update_user(user)
         flash('User updated','success')
-        return render_tempalte(url_for('admin.users'))
+        return render_template(url_for('admin.users'))
     return render_template('admin/edit_user.html',form=form,user=user)
 
 @admin.route('/users/<int:user_id>/delete')
