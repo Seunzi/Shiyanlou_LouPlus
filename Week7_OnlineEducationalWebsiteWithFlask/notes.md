@@ -1,3 +1,7 @@
+# Week 7 Building online educational website with Flask
+
+<!-- TOC -->autoauto- [Week 7 Building online educational website with Flask](#week-7-building-online-educational-website-with-flask)auto    - [Render forms with macro](#render-forms-with-macro)auto            - [basic syntax](#basic-syntax)auto            - [Examples](#examples)auto    - [Custom forms' validator](#custom-forms-validator)auto            - [simple example](#simple-example)auto            - [basic syntax](#basic-syntax-1)auto    - [flask-login](#flask-login)autoauto<!-- /TOC -->
+
 ## Render forms with macro
 
 Using jinja2 `macro` to encapsulate codes for reusing.
