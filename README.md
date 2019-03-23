@@ -162,7 +162,7 @@ My personal practices and cheat sheets during Shiyanlou Louplus' courses, most o
 
 **Key point:** `Selenium`, `PhantomJS`.
  
-#### ~~[Challenge47 Anti anti-spider strategy]()~~(Failed)
+#### ~~Challenge47 Anti anti-spider strategy~~(Failed)
 
 **Key point:** Class `CrawlSpider`, read and write to `Redis`, Usage of `UserAgentMiddleware`, `COOKIES_ENABLED`, `DOWNLOAD_DELAY`.
  
