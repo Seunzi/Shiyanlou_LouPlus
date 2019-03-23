@@ -94,6 +94,8 @@ My personal practices and cheat sheets during Shiyanlou Louplus' courses, most o
 
 ### Week7 Flask build onlilne education website
 
+#### [>>>Cheat sheet<<<](https://github.com/Seunzi/Shiyanlou_LouPlus/blob/master/Week7_OnlineEducationalWebsiteWithFlask/cheatSheet.md)
+
 #### [Challenge22 Add user's page](https://github.com/Seunzi/Shiyanlou_LouPlus/tree/master/Week7_OnlineEducationalWebsiteWithFlask/W7C22/simpledu)
 
 **Key point:** `Flask` web framework, `Flask Blueprint`, `Jinja2`.
@@ -105,8 +107,6 @@ My personal practices and cheat sheets during Shiyanlou Louplus' courses, most o
 #### [Challenge24 Add user management feature](https://github.com/Seunzi/Shiyanlou_LouPlus/tree/master/Week7_OnlineEducationalWebsiteWithFlask/W7C24/simpledu)
 
 **Key point:** `Flask-SQLAlchemy`.
-
-#### [Cheat sheet](https://github.com/Seunzi/Shiyanlou_LouPlus/blob/master/Week7_OnlineEducationalWebsiteWithFlask/cheatSheet.md)
 
 <br>
 
